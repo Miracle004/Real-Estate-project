@@ -1,0 +1,259 @@
+*{
+    padding: 0;
+    margin: 0;
+    background: black;
+}
+
+ body{
+    background: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ }
+
+ .alert{
+     background: black;
+     padding: 10px;
+     width: 100%;
+ }
+
+ .error{
+    background: black;
+    color: red;
+    padding: 8px;
+    display: block;   
+}
+
+.nameSide{
+    margin-bottom:10px;
+}
+
+.successMsg{
+    background: darkgreen;
+    margin:350px auto;
+    width: 300px;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+
+ /*Logo for all pages*/
+.site-logo {
+    display: inline-block;
+    margin: 20px;
+    width: 200px;
+    height: 60px;
+
+}
+
+.first_header{
+    font-size: 50px;
+    font-family:rockwell;
+    background: black;
+    color: white;
+    text-shadow: 0 2px 6px   darkgreen;
+    text-align: center;
+}
+
+.subParent{
+    display: block;
+    width: 500px;
+    padding: 30px;
+    margin: 200px auto;
+    background: inherit;
+}
+
+ .this{
+     display: block;
+     margin: 50px auto;
+     width: 120px;
+     text-align: center;
+     padding: 20px;
+     font-size: 30px;
+     color: white;
+     background: black;
+     border: 2px solid green;
+     border-radius: 1.6rem;
+     text-decoration: none;
+}
+ .this:hover{
+    background: darkgreen;
+    border: none;
+}
+
+.this:active{
+    background: rgb(0, 85, 0);
+}
+
+/*Style for the login an password revoery page*/
+.parent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: black;
+    border-radius: 10px;
+}
+
+.parent .header{
+    text-align: center;
+    color: white;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.parent form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txt_field{
+    position: relative;
+    margin: 40px 0 0 0;
+}
+
+.txt_field input{
+    width: 100%;
+    border-radius: .5rem;
+    padding: 12px 10px;
+    font-size: 20px;
+    border:2px solid grey;
+    color: white;
+    outline: none;
+}
+
+.txt_field input:focus{
+    transition: border-color ease;
+    border-color: darkgreen;
+}
+
+.pass{
+    margin: 5px 0 20px 5px;
+    color: lightgrey;
+    cursor: pointer;
+}
+
+.pass .sign{
+    color: darkslategray;
+    text-decoration: none;
+}
+
+.pass .sign:hover{
+    color: darkgreen;
+    text-decoration: underline;
+}
+
+input[type ="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 2px solid darkgreen;
+    background: black;
+    color: darkgreen;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+input[type = "submit"]:hover{
+    border-color: white;
+    transition: .5s;
+    background: darkgreen;
+    color: white;
+}
+
+.register-link{
+    margin: 30px 0;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    color: grey;
+}
+
+.register-link .sign{
+    color: darkslategray;
+    text-decoration: none;
+}
+
+.register-link .sign:hover{
+    color: darkgreen;
+    text-decoration: underline;
+}
+
+
+/*Registration Page Style*/
+
+.content-container{
+    padding: 10px;
+    width: 500px;
+    color: white;
+    top: 15%;
+    left: 35%;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.content-container .input-container{
+    position: relative;
+    width: 340px;
+    margin: 50px auto ;
+    border: none;
+}
+
+::placeholder{
+    font-size: 20px;
+    padding: 10px;
+    color: grey;
+}
+.pageHeader{
+    border-bottom: 2px solid grey;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+}
+
+.input-container input{
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: .5rem;
+    padding:5px;
+    border: 2px solid grey;
+    color: white;
+    outline: none;
+}
+.input-container input:focus{
+    border-color: darkgreen;
+    transition: border-color .5s ease;
+}
+
+.radiobtn-container{
+    display: inline-block;
+    width: 480px;
+    margin: 10px auto;
+}
+
+.radioBtn{
+    width: 190px;
+    float: left;
+    color: white;
+    margin: 10px 0 10px 50px;
+}
+
+.login-link{
+    margin: 20px 0 20px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+}
+
+.login-link .enter{
+    color: grey;
+    text-decoration: none;
+}
+
+.login-link .enter:hover{
+    color: lightgrey;
+    text-decoration: underline;
+}
