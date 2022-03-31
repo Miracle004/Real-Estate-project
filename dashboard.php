@@ -1,12 +1,25 @@
 <?php
+session_start();
 
-include('main.php')
-    $$Login_User = new Login($_SESSION);
+include('User.php');
+    $Login_User = new Login($_SESSION);
+    #the  different messages displayed are as a result of the difference in the password length.
     if($_SESSION['login']){
-        $dashboard = "Congratulations you have successfully logged in.";
+        #message to display if an admin logs in
+        if (strlen($Login_User->password) > 10) {
+            $dashboard = "Congratulations Admin you have successfully logged in.<br> logout <a href='logout.php'>HERE.</a>";
+        }
+        #message to display if an agent logs in
+        elseif(strlen($Login_User->password) === 5){
+        $dashboard = "Congratulations Agent you have successfully logged in.<br> logout <a href='logout.php'>HERE.</a>";
+        }
+        #message to display if a client logs in
+        else
+        $dashboard = "Congratulations you have successfully logged in.<br> logout <a href='logout.php'>HERE.</a>";
     }
     else
-        $dashboard = "Sorry you have not logged in yet";
+        $dashboard = "Sorry you have not logged in yet.<br> logout <a href='logout.php'>HERE.</a>";    
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +34,6 @@ include('main.php')
 <body>
   
         <img src="logo.png" alt="" class="site-logo">
-        <h1 class="first_header"><?php $dashboard?></h1>
+        <h1 class="first_header"><?php echo  $dashboard ?></h1>
 </body>
 </html>

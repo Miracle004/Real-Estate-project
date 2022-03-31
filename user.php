@@ -1,6 +1,5 @@
 <?php
 
-
 class Login{
     public $username;
     public $password;
@@ -13,7 +12,7 @@ class Login{
     
 
     public  function __construct($POST){
-        $this->username = $POST['usrname'];
+        $this->username = $POST['username'];
         $this->password = $POST['password'];
         $this->inputed_data =$this->data_validate();
         return false;
@@ -32,6 +31,7 @@ class Login{
     #setting properties which will serve as session variables
     public function setUserDetails($session){
         $this->username = $session['username'];
+        $this->password = $session['password'];
         $this->type = $session['type'];
     }
 
@@ -39,22 +39,21 @@ class Login{
     public function check_userData(){
         if ($this->inputed_data) {
             # code to check if there is a match for the newly validated user input;
-            if($_SESSION['login'])
-                $this->login == true;
-            return true;
+                if($_SESSION['login'] === true)
+                   $this->login =$_SESSION['login'];
+                return true;
+                }
 
-        }
-
-        #code to be run if there is no match in the database for the submitted user details
+            #code to be run if there is no match in the database for the submitted user details
         else{
             $this->login_form =<<<Form
-            <a href="home.html"><img src="logo.png" alt="" class="site-logo"></a>
+            <a href="index.php"><img src="logo.png" alt="" class="site-logo"></a>
             <div class="parent">
                      <h1 class="header">Login</h1>
                      <span class = "error"></span>
                 <form action="main.php" method="POST" autocomplete="off">
                     <div class="txt_field">
-                         <input type="text" name="usrname"  value="$this->username">
+                         <input type="text" name="username"  value="$this->username">
                     </div>
                         <span class = "error"></span>
                                      
@@ -70,7 +69,7 @@ class Login{
                                 Not A Member? <a href="registration.html" class="sign">Sign-Up</a>
                             </div>
 Form;
-               return false;   
+               return true;   
         }
     }
 }

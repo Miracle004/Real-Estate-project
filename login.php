@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
     </head>
 
     <body>
-        <a href="home.html"><img src="logo.png" alt="" class="site-logo" ></a>
+        <a href="index.php"><img src="logo.png" alt="" class="site-logo" ></a>
         <div class="parent">
             <h1 class="header">Login</h1>
             
@@ -17,12 +20,12 @@
             <form action="main.php" method="POST" autocomplete="off">
 
                 <div class="txt_field">
-                    <input type="text" name="usrname" placeholder="Username"  >
+                    <input type="text" name="username" placeholder="Username"  required>
                 </div>
                 <span class = "error"></span>
 
                 <div class="txt_field">
-                    <input type="password" name="password" placeholder="Password"  >
+                    <input type="password" name=" password" placeholder="Password"  required>
                 </div>
                 <span class = "error"></span>
 
