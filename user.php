@@ -14,6 +14,7 @@ class Login{
     public  function __construct($POST){
         $this->username = $POST['username'];
         $this->password = $POST['password'];
+        #$this->login = $POST['login'];
         $this->inputed_data =$this->data_validate();
         return false;
     }
@@ -58,7 +59,7 @@ class Login{
                         <span class = "error"></span>
                                      
                     <div class="txt_field">
-                        <input type="password" name="password" value="$this->password">
+                        <input type="password" name="password" value='$this->password'>
                     </div>
                         <span class = "error"></span>                 
                             <div class="pass"><a href="password_recovery.html" class="sign">Forgot Password?</a></div>

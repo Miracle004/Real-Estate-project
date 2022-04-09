@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+}
+body{
+    background:black; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+}
+
+.site-logo{
+    display: inline-block;
+    margin: 20px;
+    width: 200px;
+    height: 70px;
+}
+
+.parent{
+    display: flex;
+}
+.header{
+    font-size: 60px;
+    color: white;
+    text-shadow: 3px 2px green;
+    font-weight: bolder;
+    margin: auto;
+    text-align: center;
+    width: fit-content;
+}
+
+.exit{
+    float: right;
+    background: white;
+    color: green;
+    font-size: 18px;
+    padding: 6px;
+    font-weight: bold;
+    border: none;
+    border-radius: .7rem;
+    margin: 30px 20px 40px 0;
+}
+
+.exit:hover{
+    background: green;
+    color: white; 
+}
+
+.upload_form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form{
+    width: 400px;
+    margin: 60px auto;
+}
+input[type="text"]{
+    width: 300px;
+    margin: 20px;
+    border: 2px solid grey;
+    border-radius: .5rem;
+    height: 40px;
+    background: black;
+    color: white;
+}
+
+::placeholder{
+    color: grey;
+    padding: 10px;
+    font-size: 18px;
+}

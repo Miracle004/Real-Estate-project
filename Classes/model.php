@@ -8,6 +8,7 @@ class Dbh{
     $password ="oluwapelumi";
     $dbName = "comcraft_property";
 
+    #connecting to the database
     $conn = new mysqli($servername, $username, $password, $dbName);
 
     if ($conn->connect_error) {

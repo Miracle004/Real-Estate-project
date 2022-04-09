@@ -29,7 +29,7 @@ class signUp extends Dbh{
         }
 
         $resultCheck;
-        #checking to see if the '$stmt' property returned any value from the database
+        #checking to see if the '$stmt' property returned any value from the database query
         if($stmt->rowCount() > 0){
             $resultCheck - false;
         }

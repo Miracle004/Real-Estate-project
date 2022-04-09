@@ -18,7 +18,7 @@ include('User.php');
         $dashboard = "Congratulations you have successfully logged in.<br> logout <a href='logout.php'>HERE.</a>";
     }
     else
-        $dashboard = "Sorry you have not logged in yet.<br> logout <a href='logout.php'>HERE.</a>";    
+        $dashboard = "Sorry you have not logged in yet.<br> Go back to Homepage <a href='index.php'>HERE.</a>";    
 
 ?>
 
@@ -35,5 +35,6 @@ include('User.php');
   
         <img src="logo.png" alt="" class="site-logo">
         <h1 class="first_header"><?php echo  $dashboard ?></h1>
+
 </body>
 </html>

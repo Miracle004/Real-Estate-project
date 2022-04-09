@@ -25,7 +25,7 @@ session_start();
                 <span class = "error"></span>
 
                 <div class="txt_field">
-                    <input type="password" name=" password" placeholder="Password"  required>
+                    <input type="password" name="password" placeholder="Password"  required>
                 </div>
                 <span class = "error"></span>
 
@@ -34,7 +34,7 @@ session_start();
                 <input type="submit" name="submit" value="submit">
 
                 <div class="register-link">
-                    Not A Member? <a href="registration.html" class="sign">Sign-Up</a>
+                    Not A Member? <a href="registration.php" class="sign">Sign-Up</a>
                 </div>
 
             </form>

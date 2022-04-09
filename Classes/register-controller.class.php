@@ -130,7 +130,7 @@ class signupContr extends signUp{
             return $result;
     }
 
-    #this method which checks if the user is already registered
+    #this method which checks if the user has been registered
     public function confirmCheck(){
         $result;
         if(!$this->userSignup($this->username, $this->email)){

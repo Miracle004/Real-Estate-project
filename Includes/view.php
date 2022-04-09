@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
     $confirmPwd = $_POST['confirmpwd'];
 
 
-#instantiating the signUp controller class
+#instantiating the sign up controller class
 include("../Classes/model.php");
 
 include("../Classes/register.class.php");

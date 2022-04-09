@@ -1,3 +1,19 @@
+<?php
+session_start();
+include('User.php');    
+
+$Login_User = new Login($_SESSION);
+$Login_User->check_userData();
+if ($Login_User->login === true) {
+    $login = 'logout';
+    #Assuming the user has acess to the page after running a check of the User Type in the database.
+    $propertyUpload = 'property_registration';
+}
+else
+    $login ='login';
+    #This is meant for users like client or an unregistered user;
+    $propertyUpload = 'registration';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +25,25 @@
 </head>
 <body>
   
-        <img src="logo.png" alt="" class="site-logo">
+    <header>
+        <div class="site-logo" id="site-logo">
+            <img src="logo.png" alt="" width="200" height="60">
+        </div>
+        <h1 class="first_header">WELCOME</h1>
+        <nav>
+            <ul>
+                <li><a href='<?php echo $login .'.php';?>'><?php echo "$login" ;?></a></li>
+                <li><a href="registration.php">Register</a></li>
+                <li><a href='<?php echo $propertyUpload .'.php?forms=propertyupload';?>'>Upload Your Property</a></li>
+            </ul>
+        </nav>
+    </header>
+        <!--<img src="logo.png" alt="" class="site-logo">
         <div class="subParent">
         <h1 class="first_header">WELCOME</h1>
         <a href="login.php" class="this">Login</a>
        <a href="registration.html" class="this">Register</a>
        
-    </div>
+    </div>-->
 </body>
 </html>
