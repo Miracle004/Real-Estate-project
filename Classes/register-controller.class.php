@@ -11,11 +11,11 @@ class signupContr extends signUp{
     public function __construct($name, $username, $email, $tel, $password, $confirmPwd){
         #Assigning the input field properties to the constructor parameters. 
         $this->name = $name;
-        $this->name = $username;
-        $this->name = $email;
-        $this->name = $tel;
-        $this->name = $password;
-        $this->name = $confirmPwd;
+        $this->username = $username;
+        $this->email = $email;
+        $this->tel = $tel;
+        $this->password = $password;
+        $this->confirmPwd = $confirmPwd;
     }
     #this function is the main validation for the registration page which combines and execute the various error handlers.
     public function signupUser(){
@@ -36,7 +36,7 @@ class signupContr extends signUp{
             exit();
         }
         if ($this->telCheck() == false) {
-            header('location: ../registration.php?error=telephoneNo');
+            header("location: ../registration.php?error=telephoneNo");
             exit();
         }
         if ($this->confirmpwdCheck() == false) {

@@ -16,32 +16,32 @@
         </div>
         <form action="/project-1/Includes/view.php" method="POST" autocomplete="off">
         <div class="input-container">
-            <input type="text" name="name" placeholder="Name" >
+            <input type="text" name="name" placeholder="Name"  value='<?php $name ?>'>
             <span class="error"></span>
         </div>
 
         <div class="input-container">
-            <input type="text" name="usrname" placeholder="Username" >
+            <input type="text" name="usrname" placeholder="Username"  value='<?php $username ?>'>
             <span class="error"></span>
          </div>
 
          <div class="input-container" >
-            <input type="email" name="email" placeholder="Email" >
+            <input type="email" name="email" placeholder="Email"  value='<?php $email ?>'>
             <span class="error"></span>
          </div>
 
          <div class="input-container" >
-            <input type ="text" name="tel" placeholder="Telephone No" min="11" max="13">
+            <input type ="text" name="tel" placeholder="Telephone No" min="11" max="13" value='<?php $tel ?>'>
             <span class="error"></span>
          </div>
 
          <div class="input-container" >
-            <input type="password" name="password" placeholder="Password" >
+            <input type="password" name="password" placeholder="Password"  value='<?php $password ?>'>
             <span class="error"></span>
           </div>
 
          <div class="input-container">
-            <input type="password" name="confirmpwd" placeholder="Confirm Password">
+            <input type="password" name="confirmpwd" placeholder="Confirm Password" value='<?php $confirmpwd ?>'>
             <span class="error"></span>
           </div>
 

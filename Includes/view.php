@@ -3,11 +3,11 @@
 if (isset($_POST["submit"])) {
     #Grabbing the data from the input fields.
     $name = $_POST["name"];
-    $username = $_POST['usrname'];
-    $email = $_POST['email'];
-    $tel = $_POST['tel'];
-    $password = $_POST['password'];
-    $confirmPwd = $_POST['confirmpwd'];
+    $username = $_POST["usrname"];
+    $email = $_POST["email"];
+    $tel = $_POST["tel"];
+    $password = $_POST["password"];
+    $confirmPwd = $_POST["confirmpwd"];
 
 
 #instantiating the sign up controller class

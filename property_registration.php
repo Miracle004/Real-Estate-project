@@ -13,17 +13,27 @@
         <a href="logout.php"><button class="exit" name="logOut" >Sign-out</button></a>
 
 </div>
-    <form action="#" class="upload_form">
+<div class="myforms">
+    <form action="#" class="upload_form1">
+        Location
         <input type="text" name="title" placeholder="Title">
         <input type="text" name="Address" placeholder="Address">
         <input type="text" name="State" placeholder="State">
         <input type="text" name="town-city" placeholder="Town/City">
         <input type="text" name="localGovt" placeholder="Local-Govt">
+        </form>
+
+        <input type="submit" name="submit" value="Submit">
+        
+        <form action="#" class="upload_form2">
+            Description
         <input type="text" name="country" placeholder="Country">
         <input type="text" name="category" placeholder="Category">
         <input type="text" name="property_type" placeholder="Type">
         <input type="text" name="price" placeholder="Price">
         <input type="text" name="property_desc" placeholder="Description">
     </form>
+
+</div>
     </body>
 </html>
