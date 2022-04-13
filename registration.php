@@ -14,7 +14,7 @@
         <h1 class="pageHeader">Register</h1>
 
         </div>
-        <form action="/project-1/Includes/view.php" method="POST" autocomplete="off">
+        <form action="/project-1/Includes/registrationView.php" method="POST" autocomplete="off">
         <div class="input-container">
             <input type="text" name="name" placeholder="Name"  value='<?php $name ?>'>
             <span class="error"></span>
@@ -46,8 +46,14 @@
           </div>
 
           <div class="radiobtn-container">
-            <div class="radioBtn"><input type="radio" name="radiobtn">Client</div>
-              <div class="radioBtn"><input type="radio" name="radiobtn">Agent</div>
+            <div class="radioBtn">
+              <input type="radio" id="rad1" name="type" value="Client">
+              <label for="rad1">Client</label>
+            </div>
+              <div class="radioBtn">
+                <input type="radio" id="rad2" name="type" value="Agent">
+                <label for="rad2">Agent</label>
+            </div>
           </div>
         <input type="submit" value="Submit" name="submit">
         </form>

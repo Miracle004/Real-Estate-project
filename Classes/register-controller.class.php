@@ -7,8 +7,9 @@ class signupContr extends signUp{
     public $tel;
     public $password;
     public $confirmPwd;
+    public $type;
 
-    public function __construct($name, $username, $email, $tel, $password, $confirmPwd){
+    public function __construct($name, $username, $email, $tel, $password, $confirmPwd, $type){
         #Assigning the input field properties to the constructor parameters. 
         $this->name = $name;
         $this->username = $username;
@@ -16,6 +17,7 @@ class signupContr extends signUp{
         $this->tel = $tel;
         $this->password = $password;
         $this->confirmPwd = $confirmPwd;
+        $this->type = $type;
     }
     #this function is the main validation for the registration page which combines and execute the various error handlers.
     public function signupUser(){
@@ -48,11 +50,11 @@ class signupContr extends signUp{
             exit();
         }
         #this method is to run if the confirmCheck() method fails and then registers the user
-        $this->setUser($this->name, $this->username, $this->email, $this->tel, $this->password);  
+        $this->setUser($this->name, $this->username, $this->email, $this->tel, $this->password, $this->type;);  
     }
 
-    public function validate(){
-        if (empty($this->name) || empty($this->username) || empty($this->email) || empty($this->tel) ||empty($this->password) || empty($this->confirmPwd)) {
+    private function validate(){
+        if (empty($this->name) || empty($this->username) || empty($this->email) || empty($this->tel) ||empty($this->password) || empty($this->confirmPwd) || empty($this->type;)) {
            $result = false;
         }
         else{
@@ -62,7 +64,7 @@ class signupContr extends signUp{
     }
          
     #name field validation
-    public function nameCheck(){
+    private function nameCheck(){
         if(!preg_match("/^[a-zA-Z ]*$/" ,$this->name)){
             $result = false;
            }
@@ -73,7 +75,7 @@ class signupContr extends signUp{
     }
 
     #Username field validation
-    public function usrnameCheck(){
+    private function usrnameCheck(){
         if(!preg_match("/^[a-zA-Z ]*$/" ,$this->username)){
             $result = false;
            }
@@ -84,7 +86,7 @@ class signupContr extends signUp{
     }
 
     #Email field validation
-    public function emailCheck(){
+    private function emailCheck(){
         $result;
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
             $result = false;
@@ -92,13 +94,13 @@ class signupContr extends signUp{
         else{
         $result = true;
         }
-        return $this->result;
+        return $result;
     }
 
     #Telephone field validation
-    public function telCheck(){
+    private function telCheck(){
         $result;
-        if (!preg_match($this->tel, FILTER_VALIDATE_INT)) {
+        if ($_POST["tel"] < 11) {
             $result = false;
         }
         else{
@@ -108,7 +110,7 @@ class signupContr extends signUp{
     }
 
     #password field validation
-    public function passwordCheck(){
+    private function passwordCheck(){
         $result;
         if(strlen($this->password) > 20){
             $result = false;
@@ -119,7 +121,7 @@ class signupContr extends signUp{
         return $result;
     }
 
-    public function confirmpwdCheck(){
+    private function confirmpwdCheck(){
         $result;
         if($this->password !== $this->confirmPwd){
             $result = false;
@@ -131,9 +133,9 @@ class signupContr extends signUp{
     }
 
     #this method which checks if the user has been registered
-    public function confirmCheck(){
+    private function confirmCheck(){
         $result;
-        if(!$this->userSignup($this->username, $this->email)){
+        if(!$this->checkUser($this->username, $this->email)){
             $result = false;
             }
             else{

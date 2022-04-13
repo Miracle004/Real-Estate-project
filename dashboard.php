@@ -1,10 +1,12 @@
 <?php
 session_start();
+include("../project-1/Classes/model.php");
 
-include('User.php');
+include("../project-1/Classes/user.php");
+
 $Login_User = new Login($_SESSION);
     
-    if($_SESSION['login']){
+    if($_SESSION['userId']){
         header("location: logindashboard.php");
     }
     else

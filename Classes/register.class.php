@@ -3,13 +3,13 @@
 class signUp extends Dbh{
 
     #this method opens the connection to the database columns and setting assigning them to the form variables
-    public function userSignup($name, $username, $email, $tel, $password){
-        $stmt = $this->connect()->prepare('INSERT INTO registered_users (fullname, username, email,  phoneNo, userPassword) VALUES (?, ?, ?, ?, ?)');
+    protected function setUser($name, $username, $email, $tel, $password, $type){
+        $stmt = $this->connect()->prepare('INSERT INTO users (fullname, username, email,  tel, userPassword, userStatus) VALUES (?, ?, ?, ?, ?, ?)');
 
         #this is a standard password hashing
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        if (!$stmt-execute(array($name, $username, $email, $tel, $hashPassword))) {
+        if (!$stmt->execute(array($name, $username, $email, $tel, $hashPassword, $type))) {
             $stmt = null;
             header("location: ../registration.php?error=stmtfailed");
             exit();
@@ -19,10 +19,9 @@ class signUp extends Dbh{
     }
 
     #this method checks if the user already exists in the database
-    public function checkUser($username, $email){
-        $stmt = $this->connect()->prepare('SELECT username FROM registered_users WHERE username = ? OR email = ?;');
-
-        if (!$stmt-execute(array($username, $email))) {
+    protected function checkUser($username, $email){
+        $stmt = $this->connect()->prepare('SELECT username FROM users WHERE username = ? OR email = ?;');
+        if (!$stmt->execute(array($username, $email))) {
             $stmt = null;
             header("location: ../registration.php?error=stmtfailed");
             exit();
@@ -40,4 +39,5 @@ class signUp extends Dbh{
         return $resultCheck;
     }
 }
-?>
+
+

@@ -2,20 +2,21 @@
 
 class Dbh{
 
-  public function connect(){
-    $servername ="localhost";
-    $username ="mhyrakle";
-    $password ="oluwapelumi";
-    $dbName = "comcraft_property";
+  protected function connect(){
+    $servername = "localhost";
+    $username ="root";
+    $password ="";
+    $dbname = "comcraft_property";
 
     #connecting to the database
-    $conn = new mysqli($servername, $username, $password, $dbName);
-
-    if ($conn->connect_error) {
-        die("connection failed:" . $conn->connect_error); 
+    try{
+      $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+      return $dbh;
       }
-
-      $conn->close();
+      catch(PDOException $e){
+        print "Error!: " . $e->getMessage() . ",br>";
+        die();
+      }
   }
 }
 ?>

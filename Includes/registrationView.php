@@ -8,6 +8,7 @@ if (isset($_POST["submit"])) {
     $tel = $_POST["tel"];
     $password = $_POST["password"];
     $confirmPwd = $_POST["confirmpwd"];
+    $type = $_POST["type"];
 
 
 #instantiating the sign up controller class
@@ -17,12 +18,12 @@ include("../Classes/register.class.php");
 
 include("../Classes/register-controller.class.php");
 
-$register = new signupContr($name, $username, $email, $tel, $password, $confirmPwd);
+$register = new signupContr($name, $username, $email, $tel, $password, $confirmPwd, $type);
 
 #Running error handlers and user signup
 $register->signupUser();
 
 #redirecting the user back to  the home page after a successful registration.
-header("location: ..index.php?error=none");
+header("location: ../index.php?error=none");
 }
 ?>

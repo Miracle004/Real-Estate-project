@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include("User.php");
+include("../project-1/Classes/user.php");
 
 $Login_user = new Login($_SESSION);
 #settting variable to get the session username
@@ -17,7 +17,7 @@ $userName = $Login_user->username;
     <title>Home Page</title>
     <link rel="stylesheet" href="upload.css">
 </head>
-<body style="background:black;">
+<body>
     <img src="logo.png" alt="" class="site-logo"><br>
     <img src="dummy2.jpg" alt="" class="dummy">
         <h1 class="main_header"><?php echo "WELCOME " .$userName;?></h1>

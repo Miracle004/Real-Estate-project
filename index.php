@@ -1,10 +1,12 @@
 <?php
 session_start();
-include('User.php');    
+include("../project-1/Classes/model.php");
 
-$Login_User = new Login($_SESSION);
-$Login_User->check_userData();
-if ($Login_User->login === true) {
+include("../project-1/Classes/user.php");    
+
+$Login_User = new Login();
+
+if (isset($_SESSION["userId"])) {
     $login = 'logout';
     #Assuming the user has acess to the page after running a check of the User Type in the database.
     $propertyUpload = 'property_registration';

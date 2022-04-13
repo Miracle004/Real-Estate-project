@@ -17,7 +17,7 @@ session_start();
             <h1 class="header">Login</h1>
             
         <!--The start of login form -->
-            <form action="main.php" method="POST" autocomplete="off">
+            <form action="/project-1/Includes/loginView.php" method="POST" autocomplete="off">
 
                 <div class="txt_field">
                     <input type="text" name="username" placeholder="Username"  required>
