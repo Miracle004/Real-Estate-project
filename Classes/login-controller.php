@@ -1,6 +1,6 @@
 <?php
 
-class loginContr extends Login{
+class loginController extends LoginModel{
     public $username;
     public $password;
 
@@ -15,12 +15,13 @@ class loginContr extends Login{
             header("location: ../login.php?error=emptyInputs");
             exit();
         }
+        else
         #this method is to run if the confirmCheck() method fails and then registers the user
         $this->getUser($this->username,  $this->password);  
     }
 
     private function validate(){
-        if (empty($this->username)  ||empty($this->password)) {
+        if ($this->username === ""  || $this->password  === "") {
            $result = false;
         }
         else{

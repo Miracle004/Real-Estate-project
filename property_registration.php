@@ -1,7 +1,36 @@
+
+ <?php 
+if (isset($_GET['error']) && $_GET['error'] == "fileIsTooBig") {
+	$errormsg = "File Is Too Big";
+}
+
+if (isset($_GET['error']) && $_GET['error'] == "Invalidfiletype") {
+	$errormsg = "This file type is unsupported";
+}
+
+if (isset($_GET['error']) && $_GET['error'] == "fileAlreadyExists") {
+	$errormsg = "This File Already Exists Please Select A Different File";
+}
+
+if (isset($_GET['error']) && $_GET['error'] == "Invalidfiletype") {
+	$errormsg = "This file type is unsupported";
+}
+
+if (isset($_GET['error']) && $_GET['error'] == "fileformatnotsupported") {
+	$errormsg = "Only images of PNG,JPG and JPEG are supported";
+		}
+
+if (isset($_GET['error']) && $_GET['error'] == "success"){
+	$errormsg = "This File Has Been Uploaded Successfully";
+
+} 
+
+  ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
+        <title>Property Upload</title>
         <link rel="stylesheet" href="upload.css">
         <script type="application/javascript">
             function populate(s1,s2){
@@ -24,17 +53,18 @@
         </script>
     </head>
     <body>
-        <div class="parent">
+        <div class="parent">   
         <a href="index.php"><img src="logo.png" alt="" class="site-logo"></a>
         <div class="header">
             Register a Property
         </div>
-        <a href="registration.php" class="exit">Register</a>
+        <a href="registration.php" ><button class="exit">Register</button></a>
         <a href="logout.php"><button class="exit" name="logOut" >Sign-out</button></a>
 
 </div>
 <div class="myforms">
-    <form action="#" class="upload_form">
+    <form action="registerP.php" class="upload_form" method="POST" enctype="multipart/form-data" >
+    <div class="upload-success"><?php echo $errormsg ?></div>
             <input type="text" name="title" placeholder="Title">
             <input type="text" name="Address" placeholder="Address">
 
@@ -61,7 +91,7 @@
 
             <select name="select5" class="myselected" id="Select5">
                 <option value="">Choose a category</option>
-                <option name="category" value=""></option>
+                <option name="category" value=""></option> 
         </select>
 
             <select name="select7" class="myselected" id="Select7">
@@ -69,6 +99,10 @@
                 <option name="price" value=""></option>
             </select>
             <textarea name="description" id="" cols="50" rows="10" placeholder="Input a description"></textarea>
+		
+		
+        <label for="image">Choose a file</label>
+		<input type="file" name="filetoUpload" id="image">
 
         <input type="submit" name="submit" value="Submit">
     </form>

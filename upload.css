@@ -1,27 +1,73 @@
 *{
     margin: 0;
+    padding: 0;
 }
 body{
+    width: 100%;
+    padding: 0%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
 }
+nav{
+    display:inline-block;   
+    width: 250px;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, .1);
+    background-color: whitesmoke;
+    /*z-index: 100;*/
+}
 
+.menu{
+    display: inherit;
+    width: 50px;
+    height: 50px;
+}
+
+nav #services-list{
+    padding: 10px;
+    list-style: none;
+    letter-spacing: 1px;
+}
+
+nav #services-list li{
+    padding: 12px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+nav #services-list a{
+    color: black;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+nav #services-list li:hover,
+nav #services-list li a:hover{
+    color: white;
+    background-color: red;
+}
 .site-logo{
-    display: inline-block;
-    margin: 20px;
+    display: block;
+    margin:0 auto;
+    position: fixed;
+    top: 10px;
+    left: 44%;
     width: 200px;
     height: 70px;
 }
+
 
 .parent{
     display: flex;
 }
 .header{
-    font-size: 40px;
+    font-size: 30px;
+    position: relative;
     color: red;
     font-weight: bolder;
-    margin: auto;
-    text-align: center;
-    width: fit-content;
+    left: 130px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
 .exit{
@@ -43,27 +89,31 @@ body{
 
 .upload_form{
     display: block;
-    background: whitesmoke;
+    
     padding: 20px 60px;
     text-align: center;
     font-size: 22px;
-    color: white;
+    box-shadow:10px 10px 10px 0  rgba(0, 0, 0, 0.2);
 }
 
 .myselected{
     width: 300px;
     display: block;
-    background-color: white;
-    margin: 10px auto;
-    height: 50px;
+    margin: 15px auto;
+    padding: 10px;
 }
 
 form{
     width: 400px;
     margin: 40px auto;
 }
+
+input{
+    caret-color: green;
+}
 input[type="text"]{
     width: 300px;
+    caret-color: green;
     display: block;
     margin: 15px auto;
     border: 2px solid grey;
@@ -80,6 +130,7 @@ textarea{
 ::placeholder{
     color: grey;
     padding: 10px;
+    margin-left: 12px;
     font-size: 18px;
 }
 
@@ -97,12 +148,19 @@ input[type="submit"]:hover{
     color: red;
     background: whitesmoke;
 }
+
+.upload-success{
+    font-size: 17px;
+    color: green;
+}
+
+
 /*Dashboard styling*/
 .dummy{
     display: block;
-    width: 150px;
-    height: 150px;
-    margin: 10px auto;
+    width: 180px;
+    height: 180px;
+    margin: 80px 0 20px 210px;
     border-radius: 50%;
 
 }
@@ -114,28 +172,19 @@ input[type="submit"]:hover{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.nav{
+.quicklist{
     display: flex;
     color: black;
-    margin-left:20%;
-    margin-bottom: 40px;
-    width: fit-content;
     padding: 10px;
 }
 
-.nav span{
-    font-size: 30px;
-    font-weight: bold;
-    margin-right: 10px;
+
+.quicklist div{
+    margin: 7px 21px;
+    font-size: 18px;
 }
 
-.nav div{
-    margin-left: 20px;
-    margin-top: 7px;
-    font-size: 20px;
-}
-
-.nav div a{
+.quicklist div a{
     color: red;
     background: whitesmoke;
     border: none;
@@ -145,21 +194,32 @@ input[type="submit"]:hover{
     margin: 7px;
 }
 
-.nav div a:hover{
+.quicklist div a:hover{
     color: white;
     background: red;    
 }
 
 main{
-    display: flex;
-    justify-content: center;
+    margin-left: 15%;
+    margin-top: 20px;
+    position: relative ;
+    display: inline-block;
 }
 
-main div{
-    width: 350px;
-    height: 350px;
-    background: whitesmoke;
-    border:none;
-    border-radius: 1rem;
-    margin-right: 10px;
+section{
+    padding: 10px;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    position: relative;
+    top: 20px;
+}
+
+section .row1{
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border: 2px solid red       ;
+    display: flex;
 }

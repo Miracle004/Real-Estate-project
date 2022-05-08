@@ -1,38 +1,52 @@
 <?php
 
-class Login extends Dbh{
+class LoginModel{
+
+    protected function connect(){
+        $servername = "localhost";
+        $username ="root";
+        $password ="";
+        $dbname = "comcraft_property";
+    
+        #connecting to the database
+        try{
+          $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+          return $dbh;
+          }
+          catch(PDOException $e){
+            print "Error!: " . $e->getMessage() . "<br>";
+            die();
+          }
+      }
 
     protected function getUser($username, $password){
         $stmt = $this->connect()->prepare('SELECT userPassword FROM users WHERE username = ? OR email = ?;');
 
         if (!$stmt->execute(array($username, $password))) {
             $stmt = null;
-            header("location: ../login.php?error=stmtfailed");
+            header("location: ../login.php?error=dbconnectfailed");
             exit();
         }
 
-        if ($stmt->rowCount() == 0) {
+        if ($stmt->rowCount() !== 1) {
             $stmt = null;
-            header("location: ../login.php?error=usernotfound");
-            exit();
+            header("location: ../login.php?error=Accountnotfound");
         }
 
-        $pwdHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $checkPwd = password_verify($password, $pwdHashed[0]["userPassword"]);
 
         if ($checkPwd == false) {
             $stmt = null;
-            header("location: ../login.php?error=wrongPassword");
-            exit();
+            header("location: ../login.php?error=IncorrectPassword");
         }
         elseif ($checkPwd == true) {
             $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ? OR email = ? AND userPassword = ?;');
 
             if (!$stmt->execute(array($username, $username, $password))) {
                 $stmt = null;
-                header("location: ../login.php?error=stmtfailed");
+                header("location: ../login.php?error=dbconnectfailed");
                 exit();
-            }
+             }
 
             if ($stmt->rowCount() == 0) {
                 $stmt = null;
@@ -48,7 +62,8 @@ class Login extends Dbh{
 
             $stmt = null;
         }
-        $stmt = null;
+
+        $this->connect()->close();
     }
 }
     /*

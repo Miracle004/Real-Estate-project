@@ -1,6 +1,6 @@
 <?php
 
-class signupContr extends signUp{
+class signupController extends signUpModel{
     public $name;
     public $username;
     public $email;
@@ -22,39 +22,32 @@ class signupContr extends signUp{
     #this function is the main validation for the registration page which combines and execute the various error handlers.
     public function signupUser(){
         if ($this->validate() == false) {
-            header("location: ../registration.php?error=emptyInputs");
-            exit();
+            header("location: ../index.php?error=emptyInputs");
         }
-        if ($this->nameCheck() == false) {
-            header("location: ../registration.php?error=name");
-            exit();
+        elseif ($this->nameCheck() == false) {
+            header("location: ../index.php?error=name");
         }
-        if ($this->usrnameCheck() == false) {
-            header("location: ../registration.php?error=username");
-            exit();
+        elseif ($this->usrnameCheck() == false) {
+            header("location: ../index.php?error=username");
         }
-        if ($this->emailCheck() == false) {
-            header("location: ../registration.php?error=email");
-            exit();
+        /*elseif ($this->emailCheck() == false) {
+            header("location: ../signup.php?error=email");
+        }*/
+        elseif ($this->telCheck() == false) {
+            header("location: ../index.php?error=telephoneNo");
         }
-        if ($this->telCheck() == false) {
-            header("location: ../registration.php?error=telephoneNo");
-            exit();
+        elseif ($this->passwordCheck() == false) {
+            header("location: ../index.php?error=password");
         }
-        if ($this->confirmpwdCheck() == false) {
-            header("location: ../registration.php?error=password");
-            exit();
-        }
-        if ($this->confirmCheck() == false) {
-            header("location: ../registration.php?error=registereduser");
-            exit();
+        elseif ($this->confirmCheck() == false) {
+            header("location: ../index.php?error=registereduser");
         }
         #this method is to run if the confirmCheck() method fails and then registers the user
-        $this->setUser($this->name, $this->username, $this->email, $this->tel, $this->password, $this->type;);  
+        $this->registerUser($this->name, $this->username, $this->email, $this->tel, $this->password, $this->type);  
     }
 
     private function validate(){
-        if (empty($this->name) || empty($this->username) || empty($this->email) || empty($this->tel) ||empty($this->password) || empty($this->confirmPwd) || empty($this->type;)) {
+        if ($this->name = "" || $this->username = "" || $this->email = "" || $this->tel = "" || $this->password = "" || $this->confirmPwd = "" || $this->type = "") {
            $result = false;
         }
         else{
@@ -87,20 +80,15 @@ class signupContr extends signUp{
 
     #Email field validation
     private function emailCheck(){
-        $result;
-        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
-            $result = false;
-        }
-        else{
-        $result = true;
-        }
-        return $result;
+        if(filter_var($this->email, FILTER_VALIDATE_EMAIL))
+            return  true;
+        return false ; 
     }
 
     #Telephone field validation
     private function telCheck(){
         $result;
-        if ($_POST["tel"] < 11) {
+        if (!isset($this->tel)) {
             $result = false;
         }
         else{
@@ -112,7 +100,7 @@ class signupContr extends signUp{
     #password field validation
     private function passwordCheck(){
         $result;
-        if(strlen($this->password) > 20){
+        if($this->password !== $this->confirmPwd){
             $result = false;
         }
         else{
@@ -121,25 +109,14 @@ class signupContr extends signUp{
         return $result;
     }
 
-    private function confirmpwdCheck(){
-        $result;
-        if($this->password !== $this->confirmPwd){
-            $result = false;
-            }
-            else{
-            $result = true;
-            }
-            return $result;
-    }
-
     #this method which checks if the user has been registered
     private function confirmCheck(){
         $result;
-        if(!$this->checkUser($this->username, $this->email)){
-            $result = false;
+        if(!$this->checkIfRegistered($this->username, $this->email)){
+            $result = true;
             }
             else{
-            $result = true;
+            $result = false;
             }
             return $result;
     }

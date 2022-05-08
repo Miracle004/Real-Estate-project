@@ -1,5 +1,41 @@
 <?php
 session_start();
+
+if (isset($_GET['error']) && $_GET['error'] == 'dbconnectfailed') {
+     $errorMsg = "IncorrectusernameOrpassword";
+}
+elseif(isset($_GET['error']) && $_GET['error'] == 'dbconnectfailed' ){
+    $errorMsg = "IncorrectusernameOrpassword";
+}
+
+elseif(isset($_GET['error']) && $_GET['error'] == 'Accountnotfound'){
+    $errorMsg = "Invalid input data";
+}
+
+elseif(isset($_GET['error']) && $_GET['error'] == 'Accountnotfound'){
+    $errorMsg = "IncorrectPassword";
+}
+
+elseif(isset($_GET['error']) && $_GET['error'] == 'IncorrectPassword'){
+    $errorMsg = "Re-enter your valid inputs";
+}
+
+
+elseif(isset($_GET['error']) && $_GET['error'] == 'dbconnectfailed'){
+    $errorMsg = "PagenotFound";
+}
+
+elseif (isset($_GET['error']) && $_GET['error'] == 'emptyInputs') {
+    $errorMsg = "Please Input valid data";
+}
+
+elseif (isset($_GET['error']) && $_GET['error'] == 'loginfailed') {
+    $errorMsg = "Login Failed";
+}
+else{
+    $errorMsg = "" ;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +48,13 @@ session_start();
     </head>
 
     <body>
+        
         <a href="index.php"><img src="logo.png" alt="" class="site-logo" ></a>
         <div class="parent">
             <h1 class="header">Login</h1>
-            
+            <div class="error"><?php echo $errorMsg ?></div>
         <!--The start of login form -->
-            <form action="/project-1/Includes/loginView.php" method="POST" autocomplete="off">
+            <form action="/project-1/Includes/login-action.php" method="POST" autocomplete="off">
 
                 <div class="txt_field">
                     <input type="text" name="username" placeholder="Username"  required>
@@ -34,7 +71,7 @@ session_start();
                 <input type="submit" name="submit" value="submit">
 
                 <div class="register-link">
-                    Not A Member? <a href="registration.php" class="sign">Sign-Up</a>
+                    Not A Member? <a href="signup.php" class="sign">Sign-Up</a>
                 </div>
 
             </form>

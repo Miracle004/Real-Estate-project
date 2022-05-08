@@ -1,10 +1,10 @@
 <?php
 session_start();
-include("../project-1/Classes/model.php");
+include("../project-1/Classes/login-model.php");
 
-include("../project-1/Classes/user.php");
+include("../project-1/Classes/login-controller.php");
 
-$Login_User = new Login($_SESSION);
+$Login_User = new loginController($_SESSION);
     
     if($_SESSION['userId']){
         header("location: logindashboard.php");

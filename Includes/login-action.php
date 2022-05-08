@@ -1,22 +1,26 @@
 <?php
 session_start(); 
 var_dump($_SESSION);
+//include("../Classes/databaseConn.php");
+include("../Classes/login-model.php");
+include("../Classes/login-controller.php");
+
 if (isset($_POST["submit"])) {
     
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    include("../Classes/model.php");
-    include("../Classes/user.php");
-    include("../Classes/login-controller.class.php");
+    
 
-    $Login_User = new loginContr($username, $password);
+    $Login_User = new loginController($username, $password);
 
     #Running error handlers and user signup
-    $Login_User->loginUser();
-    
+    if($Login_User->loginUser()){
     #redirecting the user back to  the home page after a successful registration.
     header("location: ../dashboard.php?login=successful");
+    }
+    else
+        header("location: ../login.php?error=loginfailed");
 }
 /*
 include('User.php');

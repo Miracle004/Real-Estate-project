@@ -1,6 +1,6 @@
 <?php
 
-class Dbh{
+class databaseConn{
 
   protected function connect(){
     $servername = "localhost";
